@@ -5,10 +5,7 @@ const bcrypt = require('bcrypt');
 const register = async (req, res, next) => {
     try {
         const object = utils.getRequestObject(req);
-        console.log('object', object);
-
         const { username, password } = object;
-        console.log('username', username)
 
         const user = await User.findOne({ username });
 
@@ -21,8 +18,6 @@ const register = async (req, res, next) => {
         const secretPassword = await bcrypt.hash(password, salt);
         const newUser = new User({ ...object, password: secretPassword });
         const savedUser = await newUser.save();
-
-        console.log('new user', savedUser)
 
         if (savedUser) {
             req.newUser = newUser;

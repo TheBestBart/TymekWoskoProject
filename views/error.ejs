@@ -1,3 +1,19 @@
-<h1><%= message %></h1>
-<a href="/api/users/login">Przejdz do Logowania</a>
-<a href="/api/addUser">Przejdz do Rejestracji</a>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>NodeJS & PostgreSQL</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body class="page">
+  <div class="not-found-wrapper">
+    <p class="not-found"><%= message %></p>
+    <a class="not-found-link" href="/api/users/login">Przejdz do Logowania</a>
+    <a class="not-found-link" href="/api/addUser">Przejdz do Rejestracji</a>
+  </div>
+
+  <%- include ./layouts/footer.ejs %>

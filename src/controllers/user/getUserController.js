@@ -6,10 +6,7 @@ const getUser =  async (req, res) => {
 
     try {
         const { id } = req.params;
-        console.log(req.params);
-
         const foundUser = isAdmin || id === user ? await User.findOne({_id: id}) : null;
-        console.log('isAdmin', isAdmin, foundUser);
 
         if(foundUser){
             return res.render('customer/list', {

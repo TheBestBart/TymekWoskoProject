@@ -7,7 +7,6 @@ const addUser = async (req, res) => {
         const savedUser = await newUser.save();
 
         if (savedUser) {
-            console.log('tutaj jestem', savedUser);
             return res.status(201).send({
                 success: true,
                 message: 'ok',

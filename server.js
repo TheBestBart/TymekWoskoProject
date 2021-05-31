@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session')
 var config = require('./config')
 var path = require('path');
+const loginForm = require('./src/controllers/basic/loginForm');
 
 const userRouter = require("./src/routes/user")
 const baseRouter = require("./src/routes/basic")
@@ -25,15 +26,16 @@ app.use(cookieSession({
 }))
 
 const port = process.env.PORT || 5000;
-mongoose.connect("mongodb+srv://Bartek:2tetBartek@cluster0.wodwq.mongodb.net/node", { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('connected to db'));
+mongoose.connect(`mongodb+srv://${config.dbUser}:${config.dbPassword}@cluster0.wodwq.mongodb.net/node`, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log('connected to db'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use('/', (req, res) => { return res.redirect('/api/')});
 app.use('/api', baseRouter)
 app.use('/api', userRouter);
-// app.use('/', (req, res) => res.render('index', {
-//   title: 'Customers panel'
-// }));
+app.use("*", (req, res) => { 
+  return res
+    .clearCookie("user")
+    .clearCookie("session")
+    .render("notFound", { title: "Node Project"})});
 
 app.listen(port, () => console.log('Server up and running on http://localhost:5000'));

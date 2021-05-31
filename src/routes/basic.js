@@ -5,7 +5,7 @@ const login = require('../controllers/basic/login');
 const register = require('../middlewares/reqister');
 const logout = require('../controllers/basic/logout');
 
-router.get("/", (req, res) => { console.log("test"); return res.redirect('/api/logout')});
+router.get("/", loginForm);
 router.get('/users/login', loginForm);
 router.get('/logout', logout);
 router.get('/logout/:id', logout);

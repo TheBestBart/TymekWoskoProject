@@ -33,13 +33,10 @@ module.exports = async (
       user.password
     );
 
-    console.log("validPasword", validPass);
     if (!validPass)
     return res.render('error', {
         message: "Niepoprawny email lub hasło"
     });
-
-    console.log('user', user);
 
     const token = utils.createToken(user);
 
