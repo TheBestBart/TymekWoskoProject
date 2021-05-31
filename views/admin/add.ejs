@@ -1,0 +1,33 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+  <form method="POST" action="/admin/add">
+    <p>Zalogowano: <span><%= username %></span></p>
+    <table cellpadding="11">
+      <tr>
+        <td class="label">Nazwa</td>
+        <td><input type="text" name="nazwa" required></td>
+      </tr>
+      <tr>
+        <td class="label">Adres</td>
+        <td><textarea name="adres" required cols="30" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td class="label">E-mail</td>
+        <td><input type="text" name="email" required></td>
+      </tr>
+      <tr>
+        <td class="label">Telefon</td>
+        <td><input type="text" name="telefon" required></td>
+      </tr>
+      <tr>
+        <td class="label"></td>
+        <td>
+          <button type="submit">Zapisz</button>
+          <button type="button" onclick="cancelAdd()">Anuluj</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,41 @@
+<%- include ../layouts/header.ejs %>
+
+  <div class="page-data">
+    <div class="data-table">
+      <div class='table'>
+        <div class='row'>
+          <div class="child">Nr.</div>
+          <div class="child">id</div>
+          <div class="child">Nazwa</div>
+          <div class="child">Admin</div>
+          <div class="child">e-mail</div>
+          <div class="child">edytuj</div>
+          <div class="child">usuń</div>
+          <div class="child">info</div>
+        </div>
+        <% if(data.length){ for(var i=0; i< data.length; i++){ %>
+          <div class='row'>
+            <div class="child">
+              <%=(i+1)%>
+            </div>
+            <div class="list-input-wrapper"><input class="userId child" value="<%=data[i]._id%>" disabled /></div>
+            <div class="list-input-wrapper"><input class="username child" value="<%=data[i].username%>" disabled />
+            </div>
+            <div class="list-input-wrapper"><input class="is_admin child" value="<%=data[i].is_admin%>" disabled />
+            </div>
+            <div class="list-input-wrapper"><input class="email child" value="<%=data[i].email%>" /></div>
+            <div class="list-input-wrapper"><button type="button" class="editButton child">edytuj</button></div>
+            <div class="list-input-wrapper"><button type="button" class="deleteButton child">Usuń</button></div>
+            <div class="list-input-wrapper"><button type="button" class="infoButton child">Info</button></div>
+          </div>
+          <% } } else { %>
+            <div>
+              <div colspan="6">Brak klientów</div>
+            </div>
+            <%} %>
+              </table>
+      </div>
+    </div>
+  </div>
+
+  <%- include ../layouts/footer.ejs %>

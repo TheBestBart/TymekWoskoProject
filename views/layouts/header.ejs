@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>NodeJS & PostgreSQL</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="page">
+  <div class="page-header">
+    <% if(title){%>
+    <h2><%= title %></h2>
+    <%}%>
+
+    <div id="linksWrapper" class='page-header-right'>
+      <a class="page-header-link" href="/api/addUser">Zarejestruj się</a>
+      <a class="page-header-link login-menu" href="/api/users/login">Zaloguj się</a>
+      <a class="page-header-link logout-menu" href="/api/logout">Wyloguj</a>
+    </div>
+  </div>

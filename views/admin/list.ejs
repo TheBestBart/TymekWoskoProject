@@ -1,0 +1,43 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+  <p>Zalogowano: <span><%= username %></span></p>
+  <div class="data-btn">
+    <button onclick="addUser()">Dodaj</button>
+    <button onclick="logout()">Wyloguj</button>
+  </div>
+  <div class="data-table">
+    <table>
+      <tr>
+        <th width="50px">Nr.</th>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Telefon</th>
+        <th>e-mail</th>
+        <th width="120px">Akcja</th>
+      </tr>
+      <% if(data.length){
+        for(var i = 0; i< data.length; i++){ %>
+      <tr>
+        <td><%=(i+1)%></td>
+        <td><%=data[i].nazwa%></td>
+        <td><%=data[i].adres%></td>
+        <td><%=data[i].telefon%></td>
+        <td><%=data[i].email%></td>
+        <td>
+          <a class="a-inside edit" href="../admin/edit/<%=data[i].id%>">Edycja</a>
+          <a class="a-inside delete" href="../admin/delete/<%=data[i].id%>">Usuń</a>
+        </td>
+      </tr>
+      <% }
+      } else {
+        %>
+      <tr>
+        <td colspan="6">Brak klientów</td>
+      </tr>
+      <%}
+       %>
+    </table>
+  </div>
+</div>
+
+<%- include ../layouts/footer.ejs %>
